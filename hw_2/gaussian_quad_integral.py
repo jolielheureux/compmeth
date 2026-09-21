@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 import argparse
 import sympy as sp
 
+
+#functions that my funciton will integrate 
+
+#main/default function is f(t) = e^(-t^2) but want to add other options to script
+
 def func(t):
     """E(t) = e^(-t^2)""" #default function that will be integrated
     y = np.e**(-t**2)
@@ -56,6 +61,7 @@ FUNCTIONS = {
     "square_root": square_root,
 }
 
+#if someone wants to add their own random funciton in terms of t they can type it as a string 
 def make_function_from_string(expr_str, var_name='t'):
     """
     Takes a math expression as a string (e.g. '2**t', 'sin(t)*t')
@@ -66,6 +72,13 @@ def make_function_from_string(expr_str, var_name='t'):
     f = sp.lambdify(t, expr, modules=['numpy'])  # turn it into a function f
     f.__doc__ = expr_str                 # sets docstring-based of newly created function f
     return f
+
+#my funciton will take a function, a value, b value, and step size as the arguments
+#default will be set as the values given in the HW problem 
+#The value will be given for each E(x) from 0 to x whith x ranging from 0 to 3 in step sizes of .1
+#E(x) is the integral of 0 to x of e^(-t^2) 
+# you can change the bounds 
+#I also wanted to plot the f(t) funciton, shade the FINAL region we integrate! 
 
 def main():
     parser = argparse.ArgumentParser(description= "Numerically compute E(x) = the integral from 0 to x of a function f(t), "
@@ -99,6 +112,7 @@ def main():
 
     #use Gaussian Quadrature to integrate
     
+    #Part (a) of the homework
     E_values = []
     x_steps = np.arange(a, b + step_size / 2, step_size) 
     print(f"E(x) = integral of '{args.function}' from {a} to x, in steps of {step_size}:")
@@ -167,7 +181,7 @@ def main():
     plt.tight_layout()
  
 
-
+#Part (b) of the Homework
 # E(x) as a function of x
     fig2, ax2 = plt.subplots(figsize=(7, 5))
     ax2.plot(x_steps, E_values, color='#1f77b4', linewidth=2, marker='o', markersize=4)
