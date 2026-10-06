@@ -49,7 +49,7 @@ def fourier_analysis(filename, t_start, t_end):
     plt.xlabel("Time (days)")
     plt.ylabel("Flux")
     plt.title("Full light curve")
-    plt.savefig("1_full_lightcurve.png")
+    plt.savefig("full_lightcurve.png")
     plt.show()
 
     #the epoch we chose
@@ -64,7 +64,7 @@ def fourier_analysis(filename, t_start, t_end):
     plt.xlabel("Time (days)")
     plt.ylabel("Flux")
     plt.title("Light curve for our epoch (" + str(t_start) + " to " + str(t_end) + ")")
-    plt.savefig("1b_epoch_lightcurve.png")
+    plt.savefig("epoch_lightcurve.png")
     plt.show()
 
     # Fourier transform and power spectrum
@@ -86,7 +86,7 @@ def fourier_analysis(filename, t_start, t_end):
     plt.xlabel("Frequency (cycles per day)")
     plt.ylabel("Power")
     plt.title("Power spectrum")
-    plt.savefig("2_power_spectrum.png")
+    plt.savefig("power_spectrum.png")
     plt.show()
 
     #Inverse transform using N coefficients
@@ -106,7 +106,7 @@ def fourier_analysis(filename, t_start, t_end):
     plt.ylabel("Flux")
     plt.title("Inverse transform ")
     plt.legend()
-    plt.savefig("3_inverse_transform.png")
+    plt.savefig("inverse_transform.png")
     plt.show()
 
     # find the missing time steps and fill them by interpolation
@@ -135,7 +135,7 @@ def fourier_analysis(filename, t_start, t_end):
     plt.ylabel("Power")
     plt.title("Power spectrum: original vs interpolated")
     plt.legend()
-    plt.savefig("4_power_spectrum_compare.png")
+    plt.savefig("power_spectrum_compare.png")
     plt.show()
 
     plt.figure(figsize=(12, 5))
@@ -151,7 +151,7 @@ def fourier_analysis(filename, t_start, t_end):
     plt.ylabel("Flux")
     plt.title("Inverse transform (interpolated data)")
     plt.legend()
-    plt.savefig("5_inverse_transform_interpolated.png")
+    plt.savefig("inverse_transform_interpolated.png")
     plt.show()
 
 
